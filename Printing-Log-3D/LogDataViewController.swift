@@ -98,7 +98,7 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return logs.logArray.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! LogDataTableViewCell
         cell.modelLabel!.text = logs.logArray[indexPath.row].modelName
@@ -109,11 +109,11 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource {
     }
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
         if tableView.isEditing {
-            tableView.setEditing(true, animated: true)
+            tableView.setEditing(false, animated: true)
             sender.title = "Edit"
             addBarButton.isEnabled = true
         } else {
-            tableView.setEditing(false, animated: true)
+            tableView.setEditing(true, animated: true)
             sender.title = "Done"
             addBarButton.isEnabled = false
         } // end of else statement

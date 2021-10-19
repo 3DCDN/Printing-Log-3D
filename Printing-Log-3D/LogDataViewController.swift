@@ -110,38 +110,23 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource {
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
         if tableView.isEditing {
             tableView.setEditing(false, animated: true)
-            sender.title = "Edit"
+            addBarButton.title = "Done"
             addBarButton.isEnabled = true
         } else {
             tableView.setEditing(true, animated: true)
-            sender.title = "Done"
+            addBarButton.title = "Edit"
             addBarButton.isEnabled = false
         } // end of else statement
     }
     // TODO: Need to add code to remove data when delete is pressed after "Edit"
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let selectedIndexPath = self.tableView.indexPathForSelectedRow!
-            //            logs.logArray.remove(at: selectedIndexPath.row)
+            let selectedIndexPath = indexPath.row
             
-            print("Current documentID location: (logs.logArray[indexPath.row].documentID)")
-//            logs.deleteData(log: logs) { (success) in
-//                if success {
-//                    if tableView.isEditing {
-//                        tableView.setEditing(true, animated: true)
-//                        self.editBarButton.title = "Edit"
-//                        self.addBarButton.isEnabled = true
-//                    } else {
-//                        tableView.setEditing(false, animated: true)
-//                        self.editBarButton.title = "Done"
-//                        self.addBarButton.isEnabled = false
-//                    }
-//                }
-//            }
-            
-            print("Data at \(selectedIndexPath.row) has been deleted")
+            print("Current documentID location: \(logs.logArray[indexPath.row].documentID)")
+            print("Data at \(selectedIndexPath) has been deleted")
             tableView.reloadData()
-            print("ViewController at indexPath \(selectedIndexPath.row) set to delete mode")
+            print("ViewController at indexPath \(selectedIndexPath) set to delete mode")
         } else {
             print("ERROR: Unsuccessful Deleting Data")
         }

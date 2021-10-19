@@ -59,13 +59,13 @@ class LoginViewController: UIViewController {
             signOut()
         }
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "FirstShowSegue" {
-            let destination = segue.destination as! LogDataViewController
-            let selectedIndexPath = tableView.indexPathForSelectedRow!
-            destination.log = logs.logArray[selectedIndexPath.row]
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "FirstShowSegue" {
+//            let destination = segue.destination as! LogDataViewController
+//           let selectedIndexPath = tableView.indexPathForSelectedRow!
+//            destination.log = logs.logArray[selectedIndexPath.row]
+//        }
+//    }
 }
 
 extension LoginViewController: FUIAuthDelegate {

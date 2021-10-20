@@ -2,7 +2,7 @@
 //  LogDataViewController.swift
 //  Printing-Log-3D
 //
-//  Created by XCodeClub on 2021-09-03.
+//  Created by Rich St.Onge on 2021-09-03.
 //
 
 import UIKit
@@ -26,7 +26,7 @@ class LogDataViewController: UIViewController {
     
     var logs: Logs!
     var log: Log!
-    //var setting: Setting!
+    var selectedIndexPath: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,29 @@ class LogDataViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-   
+    func deleteData() {
+        let db = Firestore.firestore()
+        // Grab the user ID
+        guard let postingUserID = Auth.auth().currentUser?.uid else {
+            print("😡 ERROR: Could not save data because we don't have a valid postingUserID")
+            return
+        }
+        
+        print("log documentID contents before modification: \(self.logs.logArray[selectedIndexPath!].documentID)")
+        // if we have saved a record, we'll have an ID otherwise .addDocument will create one
+        if logs.logArray[selectedIndexPath!].documentID != nil { // need to create a new document if it doesn't exist
+            var ref: DocumentReference? = nil
+            db.collection("Log").document(postingUserID).collection("Log").document(logs.logArray[selectedIndexPath!].documentID).delete()
+
+                print("Deleted document \(self.logs.logArray[self.selectedIndexPath!].documentID)") // it worked
+                //print("Comparing ref.documentID \(ref!.documentID) to self.documentID \(self.logs.logArray[selectedIndexPath!].documentID)")
+            
+        } else { // handle error in documentID here
+                                    print("😡 ERROR: Don't have a valid documentID and cannot delete")
+            
+        }
+    }
+    
     func configSegmentedControl() {
         // set font colors for segmentedControl
         let orangeFontColor = [NSAttributedString.Key.foregroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange]
@@ -84,7 +106,7 @@ class LogDataViewController: UIViewController {
         default:
             print("Hey! You should have reached this point. Check the segmented control for an error.")
         }
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
 
     @IBAction func sortSegmentControlPressed(_ sender: UISegmentedControl) {
@@ -109,10 +131,12 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource {
     }
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
         if tableView.isEditing {
+            print("Currently in Edit Mode")
             tableView.setEditing(false, animated: true)
             addBarButton.title = "Done"
             addBarButton.isEnabled = true
         } else {
+            print("Currently NOT in Edit Mode")
             tableView.setEditing(true, animated: true)
             addBarButton.title = "Edit"
             addBarButton.isEnabled = false
@@ -121,22 +145,17 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource {
     // TODO: Need to add code to remove data when delete is pressed after "Edit"
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let selectedIndexPath = indexPath.row
-            
-            print("Current documentID location: \(logs.logArray[indexPath.row].documentID)")
-            print("Data at \(selectedIndexPath) has been deleted")
+            selectedIndexPath = indexPath.row
+            deleteData()
+            print("Current documentID location: \(logs.logArray[selectedIndexPath!].documentID)")
+            print("Data at \(selectedIndexPath!) has been deleted")
             tableView.reloadData()
             print("ViewController at indexPath \(selectedIndexPath) set to delete mode")
         } else {
             print("ERROR: Unsuccessful Deleting Data")
         }
     }
-    
-
-        //    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        //        let swipeConfig = UISwipeActionsConfiguration()
-        //        swipeConfig.actions.
-            
+             
     private func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }

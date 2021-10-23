@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Printing-Log-3D
 //
-//  Created by XCodeClub on 2021-08-31.
+//  Created by Rich St.Onge on 2021-08-31.
 //
 
 import UIKit

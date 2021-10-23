@@ -2,7 +2,7 @@
 //  LogDetailTableViewController.swift
 //  Printing-Log-3D
 //
-//  Created by XCodeClub on 2021-09-06.
+//  Created by Rich St.Onge on 2021-09-06.
 //
 
 import UIKit
@@ -38,9 +38,6 @@ class LogDetailTableViewController: UITableViewController, UITextFieldDelegate, 
     
     var log: Log!
     var notifyOnce = false
-    
-//    var setting: Setting!
-//    var settings: Settings!
     
     //let datePickerIndexPath = IndexPath(row: 1, section: 1)
     //let notesTextViewIndexPath = IndexPath(row: 0, section: 3)
@@ -99,7 +96,6 @@ class LogDetailTableViewController: UITableViewController, UITextFieldDelegate, 
         //        // TODO: get date from UIDatePicker change datePrintedLabel
         //        // ADD didSet to equation
         //        // removed: log.date = dateFormatter.date(from: datePrintedLabel.text!) ?? Date()
-        // TODO: The wrong date is shown when viewing the existing item in LogDataViewController
         log.date = datePickerSelection.date
         log.notes = notesTextView.text
         log.filamentType = filamentType?.text ?? "PLA"

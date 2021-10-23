@@ -59,12 +59,12 @@ class LogDataViewController: UIViewController {
         if logs.logArray[selectedIndexPath!].documentID != nil { // need to create a new document if it doesn't exist
             var ref: DocumentReference? = nil
             db.collection("Log").document(postingUserID).collection("Log").document(logs.logArray[selectedIndexPath!].documentID).delete()
-
-                print("Deleted document \(self.logs.logArray[self.selectedIndexPath!].documentID)") // it worked
-                //print("Comparing ref.documentID \(ref!.documentID) to self.documentID \(self.logs.logArray[selectedIndexPath!].documentID)")
+            
+            print("Deleted document \(self.logs.logArray[self.selectedIndexPath!].documentID)") // it worked
+            //print("Comparing ref.documentID \(ref!.documentID) to self.documentID \(self.logs.logArray[selectedIndexPath!].documentID)")
             
         } else { // handle error in documentID here
-                                    print("😡 ERROR: Don't have a valid documentID and cannot delete")
+            print("😡 ERROR: Don't have a valid documentID and cannot delete")
             
         }
     }
@@ -116,7 +116,7 @@ class LogDataViewController: UIViewController {
     }
 }
 
-extension LogDataViewController: UITableViewDelegate, UITableViewDataSource {
+extension LogDataViewController: UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return logs.logArray.count
     }
@@ -133,15 +133,18 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView.isEditing {
             print("Currently in Edit Mode")
             tableView.setEditing(false, animated: true)
-            addBarButton.title = "Done"
+            sender.title = "Edit"
             addBarButton.isEnabled = true
         } else {
             print("Currently NOT in Edit Mode")
             tableView.setEditing(true, animated: true)
-            addBarButton.title = "Edit"
+            sender.title = "Done"
             addBarButton.isEnabled = false
         } // end of else statement
     }
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        <#code#>
+//    }
     // TODO: Need to add code to remove data when delete is pressed after "Edit"
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

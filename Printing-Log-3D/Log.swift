@@ -102,7 +102,6 @@ class Log {
         //TODO: Need to add dateFormatter in order to convert date to String
         let dataToSave: [String: Any] = self.dictionary
 
-        print("log documentID contents before modification: \(self.documentID)")
         // if we have saved a record, we'll have an ID otherwise .addDocument will create one
         if self.documentID == "" { // need to create a new document if it doesn't exist
             var ref: DocumentReference? = nil

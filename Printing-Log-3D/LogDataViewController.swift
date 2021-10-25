@@ -145,15 +145,16 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource, UIN
 //    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 //        <#code#>
 //    }
+    // TODO: Need to figure out why the Navigation and Bottom bars are not orange as they should be!!
     // TODO: Need to add code to remove data when delete is pressed after "Edit"
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            selectedIndexPath = indexPath.row
+            oneButtonAction(title: "Delete Confirmation", message: "Are you sure that you want to delete your data? Warning: Data cannot be recovered")
+            if selection == true {
+                self.selectedIndexPath = indexPath.row
             deleteData()
-            print("Current documentID location: \(logs.logArray[selectedIndexPath!].documentID)")
-            print("Data at \(selectedIndexPath!) has been deleted")
             tableView.reloadData()
-            print("ViewController at indexPath \(selectedIndexPath) set to delete mode")
+            }
         } else {
             print("ERROR: Unsuccessful Deleting Data")
         }

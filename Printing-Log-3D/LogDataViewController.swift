@@ -26,6 +26,7 @@ class LogDataViewController: UIViewController {
     
     var logs: Logs!
     var log: Log!
+    var selection: Bool!
     var selectedIndexPath: Int?
     
     override func viewDidLoad() {
@@ -142,19 +143,29 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource, UIN
             addBarButton.isEnabled = false
         } // end of else statement
     }
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        <#code#>
-//    }
+// TODO: Need to use escaping completion to send result back to function
+
+    //TODO: Remove extra arguments in oneButtonAction
+    //TODO: Issue warning when entering <<<EDIT MODE>>>
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        // TODO: Deselect rows
+        if oneButtonAction(title: "Delete Confirmation", message: "Are you sure that you want to delete your data? 􀞟WARNING􀞟: Data cannot be recovered!!!") {
+            selection = true
+        } else {
+           selection = false
+        }
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
     // TODO: Need to figure out why the Navigation and Bottom bars are not orange as they should be!!
     // TODO: Need to add code to remove data when delete is pressed after "Edit"
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            oneButtonAction(title: "Delete Confirmation", message: "Are you sure that you want to delete your data? Warning: Data cannot be recovered")
-            if selection == true {
+//        if oneButtonAction(title: "Delete Confirmation", message: "Are you sure that you want to delete your data? Warning: Data cannot be recovered") == true {
+            if editingStyle == .delete {
+             
                 self.selectedIndexPath = indexPath.row
-            deleteData()
-            tableView.reloadData()
-            }
+                self.deleteData()
+                tableView.reloadData()
+//            }
         } else {
             print("ERROR: Unsuccessful Deleting Data")
         }

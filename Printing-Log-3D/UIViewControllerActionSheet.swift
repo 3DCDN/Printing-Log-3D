@@ -14,8 +14,8 @@ extension UIViewController: UIAlertViewDelegate {
         let actionController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: nil)
-        actionController.addAction(deleteAction)
         actionController.addAction(cancelAction)
+        actionController.addAction(deleteAction)
         if deleteAction.isEnabled {
             print("Delete action is enabled")
         }

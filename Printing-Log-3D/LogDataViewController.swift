@@ -31,6 +31,7 @@ class LogDataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController!.navigationBar.barStyle = .blackOpaque
         logs = Logs()
         if log == nil {
             log = Log()

@@ -33,6 +33,7 @@ class LogDataViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController!.navigationBar.barStyle = .blackOpaque
         logs = Logs()
+        //UISwipeConfiguration.performsFirstActionWithFullSwipe = false
         if log == nil {
             log = Log()
         }
@@ -178,6 +179,8 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource, UIN
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return false
     }
+//    func tableView.separatorColor = .systemBlue
+//    func tableView.separatorStyle = .singleLine
 //    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
 //        <#code#>
 //    }

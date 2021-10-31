@@ -29,10 +29,12 @@ class LogDataViewController: UIViewController {
     var selection: Bool!
     var selectedIndexPath: Int?
     
+//    let statusBarBackgroundColor = UIColor(named: "PrimaryColor")
+//    self.view.layer.backgroundColor = statusBarBackgroundColor.cgColor()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController!.navigationBar.barStyle = .blackOpaque
         logs = Logs()
+//        overrideUserInterfaceStyle
         //UISwipeConfiguration.performsFirstActionWithFullSwipe = false
         if log == nil {
             log = Log()
@@ -43,7 +45,11 @@ class LogDataViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationController?.viewControllers[0].overrideUserInterfaceStyle = .light
+        self.navigationController?.setStatusBar(backgroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange)
+        //self.view.backgroundColor = UIColor(named: "PrimaryColor")
+
+        self.navigationItem.title = "3D Printing Log"
         logs.loadData {
             self.sortBasedOnSegmentPressed() // data is sorted before the view appears
             self.tableView.reloadData()

@@ -46,6 +46,7 @@ class LogDetailTableViewController: UITableViewController, UITextFieldDelegate, 
     //let defaultRowHeight: CGFloat = 44
     override func viewDidLoad() {
         //self.datePickerSelection.maximumDate = Date()
+        self.navigationItem.title = "Add Parameters"
         tableView.delegate = self
         tableView.dataSource = self
         setupTextFieldDelegates()

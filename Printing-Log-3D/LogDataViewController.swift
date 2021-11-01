@@ -33,6 +33,8 @@ class LogDataViewController: UIViewController {
 //    self.view.layer.backgroundColor = statusBarBackgroundColor.cgColor()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.toolbar.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
+        self.navigationController?.setStatusBar(backgroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange)
         logs = Logs()
 //        overrideUserInterfaceStyle
         //UISwipeConfiguration.performsFirstActionWithFullSwipe = false
@@ -45,10 +47,7 @@ class LogDataViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.viewControllers[0].overrideUserInterfaceStyle = .light
-        self.navigationController?.setStatusBar(backgroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange)
-        //self.view.backgroundColor = UIColor(named: "PrimaryColor")
-
+        
         self.navigationItem.title = "3D Printing Log"
         logs.loadData {
             self.sortBasedOnSegmentPressed() // data is sorted before the view appears
@@ -155,6 +154,7 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource, UIN
 
     //TODO: Remove extra arguments in oneButtonAction
     //TODO: Issue warning when entering <<<EDIT MODE>>>
+    
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
         // TODO: Deselect rows
         if oneButtonAction(title: "Delete Confirmation", message: "Are you sure that you want to delete your data? 􀞟WARNING􀞟: Data cannot be recovered!!!") {

@@ -46,6 +46,10 @@ class LogDetailTableViewController: UITableViewController, UITextFieldDelegate, 
     //let defaultRowHeight: CGFloat = 44
     override func viewDidLoad() {
         //self.datePickerSelection.maximumDate = Date()
+        //self.navigationController?.toolbar.isTranslucent = true
+        // ***Only happens when going through the Navigation Controller 
+        //TODO: need to figure out why the Status Bar changes to dark when scrolling back up
+        //TODO: need to figure out why the Tool Bar changes to light when scrolling back up
         self.navigationItem.title = "Add Parameters"
         tableView.delegate = self
         tableView.dataSource = self

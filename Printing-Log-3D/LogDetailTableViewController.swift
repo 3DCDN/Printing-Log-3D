@@ -45,16 +45,20 @@ class LogDetailTableViewController: UITableViewController, UITextFieldDelegate, 
     //let notesRowHeight: CGFloat = 200
     //let defaultRowHeight: CGFloat = 44
     override func viewDidLoad() {
+        super.viewDidLoad()
         //self.datePickerSelection.maximumDate = Date()
         //self.navigationController?.toolbar.isTranslucent = true
-        // ***Only happens when going through the Navigation Controller 
+        // ***Only happens when going through the Navigation Controller
         //TODO: need to figure out why the Status Bar changes to dark when scrolling back up
         //TODO: need to figure out why the Tool Bar changes to light when scrolling back up
+        
+        self.navigationController?.setStatusBar(backgroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange)
+        self.navigationController?.toolbar.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
+//        self.navigationController?.navigationBar.setNeedsLayout()
         self.navigationItem.title = "Add Parameters"
         tableView.delegate = self
         tableView.dataSource = self
         setupTextFieldDelegates()
-        super.viewDidLoad()
         let tap = UIGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
@@ -98,9 +102,9 @@ class LogDetailTableViewController: UITableViewController, UITextFieldDelegate, 
     func updateFromUserInterface() {
         log.modelName = modelTextField.text!
         log.printerName = printerNameTextField.text!
-        //        // TODO: get date from UIDatePicker change datePrintedLabel
-        //        // ADD didSet to equation
-        //        // removed: log.date = dateFormatter.date(from: datePrintedLabel.text!) ?? Date()
+        // TODO: get date from UIDatePicker change datePrintedLabel
+        // ADD didSet to equation
+        // removed: log.date = dateFormatter.date(from: datePrintedLabel.text!) ?? Date()
         log.date = datePickerSelection.date
         log.notes = notesTextView.text
         log.filamentType = filamentType?.text ?? "PLA"
@@ -138,7 +142,7 @@ class LogDetailTableViewController: UITableViewController, UITextFieldDelegate, 
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         updateFromUserInterface()
-        //        // TODO: Need to add warning if trying to save with log.filamentType == nil
+        // TODO: Need to add warning if trying to save with log.filamentType == nil
  
         log.saveData { (success) in
             if success {

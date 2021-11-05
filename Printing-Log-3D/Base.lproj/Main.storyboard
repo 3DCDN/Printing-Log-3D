@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HWn-tg-A8u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HWn-tg-A8u">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -34,9 +34,11 @@
             <objects>
                 <viewController id="6lE-lD-my1" customClass="LogDataViewController" customModule="Printing_Log_3D" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="x0w-LT-x1n">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <viewLayoutGuide key="contentLayoutGuide" id="1na-qQ-SBG"/>
+                        <viewLayoutGuide key="frameLayoutGuide" id="LFl-nU-gn8"/>
                         <color key="sectionIndexBackgroundColor" name="PrimaryColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="uPa-dz-fBg" customClass="LogDataTableViewCell" customModule="Printing_Log_3D" customModuleProvider="target">
@@ -92,9 +94,9 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" id="vQC-eP-ezY">
-                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="XAF-cT-oDg">
+                            <segmentedControl key="customView" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="XAF-cT-oDg">
                                 <rect key="frame" x="20" y="10.666666666666664" width="374" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="PrimaryColor"/>
                                 <segments>
                                     <segment title="A-Z"/>
@@ -129,6 +131,7 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="addBarButton" destination="K4f-cW-T75" id="Gf8-K4-MYv"/>
@@ -145,10 +148,10 @@
         <!--Navigation Controller-->
         <scene sceneID="GjN-u2-HHF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="light" toolbarHidden="NO" id="HWn-tg-A8u" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="HWn-tg-A8u" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="AES-c7-ztF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="AES-c7-ztF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="PrimaryColor"/>
@@ -171,12 +174,22 @@
                         </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="WBM-LV-DMk">
+                    <toolbar key="toolbar" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="WBM-LV-DMk">
                         <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="PrimaryColor"/>
-                        <color key="barTintColor" name="PrimaryColor"/>
-                        <toolbarAppearance key="standardAppearance">
+                        <color key="tintColor" name="PrimaryColor"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <toolbarAppearance key="standardAppearance" backgroundImageContentMode="scaleToFill">
+                            <color key="backgroundColor" name="PrimaryColor"/>
+                        </toolbarAppearance>
+                        <toolbarAppearance key="compactAppearance" backgroundImageContentMode="scaleToFill">
+                            <color key="backgroundColor" name="PrimaryColor"/>
+                        </toolbarAppearance>
+                        <toolbarAppearance key="scrollEdgeAppearance" backgroundImageContentMode="scaleToFill">
+                            <color key="backgroundColor" name="PrimaryColor"/>
+                        </toolbarAppearance>
+                        <toolbarAppearance key="compactScrollEdgeAppearance" backgroundImageContentMode="scaleToFill">
                             <color key="backgroundColor" name="PrimaryColor"/>
                         </toolbarAppearance>
                     </toolbar>
@@ -191,12 +204,15 @@
         <!--Log Detail Table View Controller-->
         <scene sceneID="eJs-Tu-531">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" interfaceStyle="light" id="xsd-IL-2Zk" customClass="LogDetailTableViewController" customModule="Printing_Log_3D" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" interfaceStyle="light" id="xsd-IL-2Zk" customClass="LogDetailTableViewController" customModule="Printing_Log_3D" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="20" sectionFooterHeight="15" id="LvN-RL-8hX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
+                        <viewLayoutGuide key="contentLayoutGuide" id="eW4-vj-lui"/>
+                        <viewLayoutGuide key="frameLayoutGuide" id="BXr-Pf-9Fk"/>
                         <color key="separatorColor" systemColor="systemGrayColor"/>
                         <sections>
                             <tableViewSection headerTitle="Model Name" id="YWz-tf-w5e">
@@ -217,6 +233,7 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <viewLayoutGuide key="safeArea" id="0dJ-DX-uAs"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="CBO-4v-kEl" secondAttribute="bottom" constant="4" id="8BR-c3-JFd"/>
                                                 <constraint firstItem="CBO-4v-kEl" firstAttribute="leading" secondItem="O4O-lM-g4m" secondAttribute="leading" constant="16" id="Uwo-su-Rld"/>
@@ -263,6 +280,7 @@
                                                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
+                                            <viewLayoutGuide key="safeArea" id="qbY-7V-Tm9"/>
                                             <constraints>
                                                 <constraint firstItem="uVi-3C-RUV" firstAttribute="top" secondItem="tON-Ue-3RN" secondAttribute="top" constant="4" id="54s-yp-ZG9"/>
                                                 <constraint firstAttribute="bottom" secondItem="uVi-3C-RUV" secondAttribute="bottom" constant="4" id="72L-Tz-CcE"/>
@@ -743,6 +761,7 @@
                             <outlet property="delegate" destination="xsd-IL-2Zk" id="u1q-Pb-3Wx"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="Y0f-3T-pGM">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oNm-y0-Ch2">
                             <connections>
@@ -755,6 +774,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bedTempTextField" destination="8fm-w7-XUi" id="jT3-lu-wPP"/>
@@ -781,14 +801,16 @@
         <!--Navigation Controller-->
         <scene sceneID="tvw-dR-9Ox">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="4cr-ea-UuB" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="4cr-ea-UuB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="8BC-kA-dzx">
+                    <navigationBar key="navigationBar" autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="8BC-kA-dzx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="PrimaryColor"/>
+                        <color key="tintColor" name="TextColor"/>
+                        <color key="barTintColor" name="PrimaryColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" name="TextColor"/>
                         </textAttributes>
@@ -800,9 +822,21 @@
                             <textAttributes key="titleTextAttributes">
                                 <color key="textColor" name="TextColor"/>
                             </textAttributes>
-                            <textAttributes key="largeTitleTextAttributes">
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="compactAppearance">
+                            <color key="backgroundColor" name="PrimaryColor"/>
+                            <textAttributes key="titleTextAttributes">
                                 <color key="textColor" name="TextColor"/>
                             </textAttributes>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" name="PrimaryColor"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" name="TextColor"/>
+                            </textAttributes>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="compactScrollEdgeAppearance">
+                            <color key="backgroundColor" name="PrimaryColor"/>
                         </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>

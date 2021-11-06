@@ -33,17 +33,18 @@ class LogDataViewController: UIViewController {
 //    self.view.layer.backgroundColor = statusBarBackgroundColor.cgColor()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let navBarAppearance = UINavigationBarAppearance()
-        
-        navBarAppearance.configureWithOpaqueBackground()
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor") ?? UIColor.white] as [NSAttributedString.Key : Any]
-        navBarAppearance.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
-        
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        let toolbar = UIToolbarAppearance()
+        toolbar.configureWithOpaqueBackground()
+        toolbar.backgroundColor = UIColor(named: "PrimaryColor")
+        navigationController?.toolbar.sizeToFit()
+        print("----------------------------------------------------")
+        print("----------------------------------------------------")
+        print("Toolbar Height is: \(self.navigationController!.toolbar.frame.height)")
+        print("----------------------------------------------------")
+        print("----------------------------------------------------")
         print("Printing Frame Size: \(self.view.layer.frame.size)")
         self.navigationController?.toolbar.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
         self.navigationController?.setStatusBar(backgroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange)
-        self.navigationController?.navigationBar.setNeedsLayout()
         
         logs = Logs()
 //        overrideUserInterfaceStyle

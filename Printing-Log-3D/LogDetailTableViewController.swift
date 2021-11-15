@@ -164,6 +164,7 @@ class LogDetailTableViewController: UITableViewController, UITextFieldDelegate, 
         log.date = sender.date // update date anytime it changes
     }
 }
+
 extension LogDetailTableViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //Not Used: self.view.becomeFirstResponder()

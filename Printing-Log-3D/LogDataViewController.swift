@@ -28,27 +28,20 @@ class LogDataViewController: UIViewController {
     var log: Log!
     var selection: Bool!
     var selectedIndexPath: Int?
+    var notifyOnce = false
     
 //    let statusBarBackgroundColor = UIColor(named: "PrimaryColor")
 //    self.view.layer.backgroundColor = statusBarBackgroundColor.cgColor()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let toolbar = UIToolbarAppearance()
-        toolbar.configureWithOpaqueBackground()
-        toolbar.backgroundColor = UIColor(named: "PrimaryColor")
-        navigationController?.toolbar.sizeToFit()
-        print("----------------------------------------------------")
-        print("----------------------------------------------------")
-        print("Toolbar Height is: \(self.navigationController!.toolbar.frame.height)")
-        print("----------------------------------------------------")
-        print("----------------------------------------------------")
         print("Printing Frame Size: \(self.view.layer.frame.size)")
         self.navigationController?.toolbar.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
         self.navigationController?.setStatusBar(backgroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange)
         
         logs = Logs()
 //        overrideUserInterfaceStyle
-        //UISwipeConfiguration.performsFirstActionWithFullSwipe = false
+        //let tableSwipe = UIContextualAction(style: <#T##UIContextualAction.Style#>, title: <#T##String?#>, handler: <#T##UIContextualAction.Handler##UIContextualAction.Handler##(UIContextualAction, UIView, @escaping (Bool) -> Void) -> Void#>)
+        // = false
         if log == nil {
             log = Log()
         }
@@ -156,6 +149,10 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource, UIN
             addBarButton.isEnabled = true
         } else {
             print("Currently NOT in Edit Mode")
+            if notifyOnce == false {
+            self.oneButtonAlert(title: "Delete Confirmation", message: "Are you sure that you want to delete your data? 􀞟􀞟􀞟WARNING􀞟􀞟􀞟: Data cannot be recovered!!!")
+                notifyOnce = true
+            }
             tableView.setEditing(true, animated: true)
             sender.title = "Done"
             addBarButton.isEnabled = false
@@ -166,30 +163,30 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource, UIN
     //TODO: Remove extra arguments in oneButtonAction
     //TODO: Issue warning when entering <<<EDIT MODE>>>
     
-    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-        // TODO: Deselect rows
-        if oneButtonAction(title: "Delete Confirmation", message: "Are you sure that you want to delete your data? 􀞟WARNING􀞟: Data cannot be recovered!!!") {
-            selection = true
-        } else {
-           selection = false
-        }
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
+//    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+//        // TODO: Deselect rows
+//        if oneButtonAction(title: "Delete Confirmation", message: "Are you sure that you want to delete your data? 􀞟WARNING􀞟: Data cannot be recovered!!!") {
+//            selection = true
+//        } else {
+//           selection = false
+//        }
+//        tableView.deselectRow(at: indexPath, animated: false)
+//    }
     // TODO: Need to figure out why the Navigation and Bottom bars are not orange as they should be!!
     // TODO: Need to add code to remove data when delete is pressed after "Edit"
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if oneButtonAction(title: "Delete Confirmation", message: "Are you sure that you want to delete your data? Warning: Data cannot be recovered") == true {
-            if editingStyle == .delete {
-             
-                self.selectedIndexPath = indexPath.row
-                self.deleteData()
-                tableView.reloadData()
-//            }
+    
+        if editingStyle == .delete {
+            self.selectedIndexPath = indexPath.row
+            self.deleteData()
+            tableView.reloadData()
+                print("Data has been deleted 􀙭􀙭􀙭")
+             //            }
         } else {
             print("ERROR: Unsuccessful Deleting Data")
         }
     }
-             
+    
     private func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }

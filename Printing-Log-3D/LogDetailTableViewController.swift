@@ -39,22 +39,20 @@ class LogDetailTableViewController: UITableViewController, UITextFieldDelegate, 
     var log: Log!
     var notifyOnce = false
     
-    //let datePickerIndexPath = IndexPath(row: 1, section: 1)
-    //let notesTextViewIndexPath = IndexPath(row: 0, section: 3)
-    //let settingsViewIndexPath = IndexPath(row: 0..<7, section: 4)
-    //let notesRowHeight: CGFloat = 200
-    //let defaultRowHeight: CGFloat = 44
+    let datePickerIndexPath = IndexPath(row: 1, section: 2)
+    let notesTextViewIndexPath = IndexPath(row: 0, section: 4)
+    //TODO: how to set range to settings value??
+    let settingsViewIndexPath = IndexPath(row: 0, section: 4)
+    let notesRowHeight: CGFloat = 200
+    let defaultRowHeight: CGFloat = 44
+    let datePickerHeight: CGFloat = 80
+    let settingsViewHeight: CGFloat = 44
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.datePickerSelection.maximumDate = Date()
-        //self.navigationController?.toolbar.isTranslucent = true
-        // ***Only happens when going through the Navigation Controller
-        //TODO: need to figure out why the Status Bar changes to dark when scrolling back up
-        //TODO: need to figure out why the Tool Bar changes to light when scrolling back up
         
-        self.navigationController?.setStatusBar(backgroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange)
-        self.navigationController?.toolbar.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
-//        self.navigationController?.navigationBar.setNeedsLayout()
+//        self.navigationController?.setStatusBar(backgroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange)
+//        self.navigationController?.toolbar.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
         self.navigationItem.title = "Add Parameters"
         tableView.delegate = self
         tableView.dataSource = self
@@ -209,16 +207,18 @@ extension LogDetailTableViewController {
         return false
         
     }
-//extension LogDetailTableViewController {
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch indexPath {
-//        case datePickerIndexPath:
-//            return self.reminderSwitch.isOn ? self.datePicker.frame.height : 0
-//        case notesTextViewIndexPath:
-//            return notesRowHeight  // height set to 200
-//        default:
-//            return defaultRowHeight // default height set to 44
-//        }
-//    }
-//}
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath {
+        case datePickerIndexPath:
+            return datePickerHeight
+        case notesTextViewIndexPath:
+            return notesRowHeight  // height set to 200
+        case settingsViewIndexPath:
+            return settingsViewHeight
+        default:
+            return defaultRowHeight // default height set to 44
+        }
+    }
+
 }

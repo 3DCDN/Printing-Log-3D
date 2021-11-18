@@ -112,8 +112,6 @@ class Log {
                 }
                 //  08/22/21 original: self.documentID = postingUserID
                 self.documentID = ref!.documentID
-                // NOTE: commented from original (removed) self.documentID = ref!.documentID
-                // print("Added document \(self.documentID)") // it worked
                 print("Added document \(self.documentID)") // it worked
                 print("Comparing ref.documentID \(ref!.documentID) to self.documentID \(self.documentID)")
                 return completion(true)

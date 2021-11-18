@@ -22,8 +22,6 @@
 		C98BBA8426DEAA5E005AFF80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98BBA8226DEAA5E005AFF80 /* LaunchScreen.storyboard */; };
 		C9BC2B3A26E00B8D008137E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9BC2B3926E00B8D008137E2 /* GoogleService-Info.plist */; };
 		CF1775D0272F065B00F4806E /* NavControllerOverride.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1775CF272F065B00F4806E /* NavControllerOverride.swift */; };
-		CF25C7FD273F0A3400CEAA60 /* UIViewController+TwoButtonAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF25C7FC273F0A3400CEAA60 /* UIViewController+TwoButtonAlert.swift */; };
-		CFE322D3272722DA00FEC431 /* UIViewControllerActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE322D2272722DA00FEC431 /* UIViewControllerActionSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +44,6 @@
 		C98BBA8526DEAA5E005AFF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9BC2B3926E00B8D008137E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF1775CF272F065B00F4806E /* NavControllerOverride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavControllerOverride.swift; sourceTree = "<group>"; };
-		CF25C7FC273F0A3400CEAA60 /* UIViewController+TwoButtonAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TwoButtonAlert.swift"; sourceTree = "<group>"; };
-		CFE322D2272722DA00FEC431 /* UIViewControllerActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerActionSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +96,6 @@
 				C95F593A26E3F0650071390D /* LogDataTableViewCell.swift */,
 				C967203226E67E200014BE1E /* LogDetailTableViewController.swift */,
 				C965286F26EAA94F00CE5293 /* UIViewController+alert.swift */,
-				CF25C7FC273F0A3400CEAA60 /* UIViewController+TwoButtonAlert.swift */,
-				CFE322D2272722DA00FEC431 /* UIViewControllerActionSheet.swift */,
 				CF1775CF272F065B00F4806E /* NavControllerOverride.swift */,
 				C98BBA7D26DEAA5D005AFF80 /* Main.storyboard */,
 				C98BBA8026DEAA5E005AFF80 /* Assets.xcassets */,
@@ -260,9 +254,7 @@
 				CF1775D0272F065B00F4806E /* NavControllerOverride.swift in Sources */,
 				C96637D126E2C6C8001BD3D3 /* LogDataViewController.swift in Sources */,
 				C965AEF526EBFC630037F5B6 /* Logs.swift in Sources */,
-				CF25C7FD273F0A3400CEAA60 /* UIViewController+TwoButtonAlert.swift in Sources */,
 				C98BBA7826DEAA5D005AFF80 /* AppDelegate.swift in Sources */,
-				CFE322D3272722DA00FEC431 /* UIViewControllerActionSheet.swift in Sources */,
 				C98BBA7A26DEAA5D005AFF80 /* SceneDelegate.swift in Sources */,
 				C967203326E67E200014BE1E /* LogDetailTableViewController.swift in Sources */,
 				C965287026EAA94F00CE5293 /* UIViewController+alert.swift in Sources */,

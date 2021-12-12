@@ -421,11 +421,16 @@ PODS:
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/UserDefaults (~> 7.4)
     - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseOAuthUI (12.0.2):
+    - FirebaseAuth (~> 8.0)
+    - FirebaseAuthUI (< 13.0, >= 12.0.2)
   - FirebaseStorage (8.8.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
   - FirebaseUI/Google (12.0.2):
     - FirebaseGoogleAuthUI (~> 12.0)
+  - FirebaseUI/OAuth (12.0.2):
+    - FirebaseOAuthUI (~> 12.0)
   - GoogleAppMeasurement (8.8.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -518,6 +523,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseUI/Google
+  - FirebaseUI/OAuth
   - GoogleSignIn
   - SDWebImage (~> 5.0)
 
@@ -535,6 +541,7 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseGoogleAuthUI
     - FirebaseInstallations
+    - FirebaseOAuthUI
     - FirebaseStorage
     - FirebaseUI
     - GoogleAppMeasurement
@@ -563,6 +570,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 29baf05d5e7e0d5003eb34e5805d92b9858b36d4
   FirebaseGoogleAuthUI: 6981c0c3c054367f9ccd730fbcf483504deb0a68
   FirebaseInstallations: 2563cb18a723ef9c6ef18318a49519b75dce613c
+  FirebaseOAuthUI: 8dc3d0270781133b10b2666d1163cd298501f453
   FirebaseStorage: 54ff752ecbd27f1c354c3f5e8c55f6ad5783699b
   FirebaseUI: b04b32ead3a6dcd5a50829e14b8f3f6d044d5d62
   GoogleAppMeasurement: 5ba1164e3c844ba84272555e916d0a6d3d977e91
@@ -578,6 +586,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
 
-PODFILE CHECKSUM: fca75a547d5c66eef9c1a16f4768f227f3f9fa9a
+PODFILE CHECKSUM: 4db11448a52aeb48da80c6b5f8a4db90aa672e95
 
 COCOAPODS: 1.11.2

@@ -8,6 +8,7 @@ target 'Printing-Log-3D' do
     pod 'Firebase/Firestore'
     pod 'Firebase/Auth'
     pod 'FirebaseUI/Google'
+    pod 'FirebaseUI/OAuth'
     pod 'GoogleSignIn'
     pod 'SDWebImage', '~> 5.0'
     

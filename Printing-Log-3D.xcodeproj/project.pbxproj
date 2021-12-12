@@ -44,6 +44,7 @@
 		C98BBA8526DEAA5E005AFF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9BC2B3926E00B8D008137E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF1775CF272F065B00F4806E /* NavControllerOverride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavControllerOverride.swift; sourceTree = "<group>"; };
+		CF7026BA274ABCE50084B953 /* Printing-Log-3D.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Printing-Log-3D.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +88,7 @@
 		C98BBA7626DEAA5D005AFF80 /* Printing-Log-3D */ = {
 			isa = PBXGroup;
 			children = (
+				CF7026BA274ABCE50084B953 /* Printing-Log-3D.entitlements */,
 				C98BBA7726DEAA5D005AFF80 /* AppDelegate.swift */,
 				C98BBA7926DEAA5D005AFF80 /* SceneDelegate.swift */,
 				C961700626E94DC1000C6ADB /* Log.swift */,
@@ -405,8 +407,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Printing-Log-3D/Printing-Log-3D.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = VX2MDT2DKQ;
 				INFOPLIST_FILE = "Printing-Log-3D/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -428,8 +432,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Printing-Log-3D/Printing-Log-3D.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = VX2MDT2DKQ;
 				INFOPLIST_FILE = "Printing-Log-3D/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

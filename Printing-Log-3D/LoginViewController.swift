@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuthUI
 import FirebaseGoogleAuthUI
+import FirebaseOAuthUI
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseStorage
@@ -33,14 +34,20 @@ class LoginViewController: UIViewController {
     func signIn() {
         let providers: [FUIAuthProvider] = [
 //          FUIGoogleAuth(),
+            FUIOAuth.appleAuthProvider(),
             FUIGoogleAuth.init(authUI: authUI)
         ]
         if authUI.auth?.currentUser == nil { // user has not signed in
             self.authUI.providers = providers // show providers named after let providers: above
             let loginViewController = authUI.authViewController()
             loginViewController.modalPresentationStyle = .fullScreen
+            let seconds = 5.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                print("Delay of five seconds is done~~")
+            }
             present(loginViewController, animated: true, completion: nil)
         } else { // user is already logged in
+            //perform(<#T##Selector#>, with: <#T##Any?#>, afterDelay: <#T##TimeInterval#>)
             performSegue(withIdentifier: "FirstShowSegue", sender: nil)
         }
     }

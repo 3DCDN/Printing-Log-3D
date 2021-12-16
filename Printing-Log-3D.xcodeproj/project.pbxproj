@@ -22,6 +22,7 @@
 		C98BBA8426DEAA5E005AFF80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98BBA8226DEAA5E005AFF80 /* LaunchScreen.storyboard */; };
 		C9BC2B3A26E00B8D008137E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9BC2B3926E00B8D008137E2 /* GoogleService-Info.plist */; };
 		CF1775D0272F065B00F4806E /* NavControllerOverride.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1775CF272F065B00F4806E /* NavControllerOverride.swift */; };
+		CF5A2FE7276A725300D486BA /* Status_Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A2FE6276A725300D486BA /* Status_Bar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		C98BBA8526DEAA5E005AFF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9BC2B3926E00B8D008137E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF1775CF272F065B00F4806E /* NavControllerOverride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavControllerOverride.swift; sourceTree = "<group>"; };
+		CF5A2FE6276A725300D486BA /* Status_Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status_Bar.swift; sourceTree = "<group>"; };
 		CF7026BA274ABCE50084B953 /* Printing-Log-3D.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Printing-Log-3D.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 				C965286F26EAA94F00CE5293 /* UIViewController+alert.swift */,
 				CF1775CF272F065B00F4806E /* NavControllerOverride.swift */,
 				C98BBA7D26DEAA5D005AFF80 /* Main.storyboard */,
+				CF5A2FE6276A725300D486BA /* Status_Bar.swift */,
 				C98BBA8026DEAA5E005AFF80 /* Assets.xcassets */,
 				C98BBA8226DEAA5E005AFF80 /* LaunchScreen.storyboard */,
 				C98BBA8526DEAA5E005AFF80 /* Info.plist */,
@@ -250,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF5A2FE7276A725300D486BA /* Status_Bar.swift in Sources */,
 				C98BBA7C26DEAA5D005AFF80 /* LoginViewController.swift in Sources */,
 				C961700726E94DC1000C6ADB /* Log.swift in Sources */,
 				C95F593B26E3F0650071390D /* LogDataTableViewCell.swift in Sources */,
@@ -410,7 +414,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Printing-Log-3D/Printing-Log-3D.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = VX2MDT2DKQ;
 				INFOPLIST_FILE = "Printing-Log-3D/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -435,7 +439,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Printing-Log-3D/Printing-Log-3D.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = VX2MDT2DKQ;
 				INFOPLIST_FILE = "Printing-Log-3D/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

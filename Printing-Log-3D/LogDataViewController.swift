@@ -17,8 +17,22 @@ private let dateFormatter: DateFormatter = {
 //    dateFormatter.dateFormat = "MMM dd yyyy hh:mm a" // remove hh:mm a if using day only
     return dateFormatter
 }()
+extension UIWindow {
+    static var isLandscape: Bool {
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.windows
+                .first?
+                .windowScene?
+                .interfaceOrientation
+                .isLandscape ?? false
+        } else {
+            return UIApplication.shared.statusBarOrientation.isLandscape
+        }
+    }
+}
 
-class LogDataViewController: UIViewController {
+
+class LogDataViewController: UIViewController, UIToolbarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
@@ -30,13 +44,22 @@ class LogDataViewController: UIViewController {
     var selectedIndexPath: Int?
     var notifyOnce = false
     
+    var hideStatusBar: Bool = false {
+        didSet {
+            setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return hideStatusBar
+    }
+    
 //    let statusBarBackgroundColor = UIColor(named: "PrimaryColor")
 //    self.view.layer.backgroundColor = statusBarBackgroundColor.cgColor()
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Printing Frame Size: \(self.view.layer.frame.size)")
-        self.navigationController?.toolbar.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
-        self.navigationController?.setStatusBar(backgroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange)
+        print("Printing Frame Height: \(self.view.layer.frame.height)")
+//        self.navigationController?.toolbar.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
         
         logs = Logs()
 //        overrideUserInterfaceStyle
@@ -49,9 +72,25 @@ class LogDataViewController: UIViewController {
         tableView.dataSource = self
         configSegmentedControl()
     }
+    //TODO: Use this code to make the nav bar clear self.navigationController.navigationBar.translucent = YES
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        let frameHeight = self.view.layer.frame.height
+        let frameWidth = self.view.layer.frame.width
+        let portraitMode: Bool
+        if frameHeight < frameWidth {
+            print("We are in Portrait Mode!!!!")
+            portraitMode = true
+        } else {
+            print("We are in Landscape Mode!!!!")
+            portraitMode = false
+        }
+        if portraitMode {
+            self.navigationController?.setStatusBar(backgroundColor: UIColor(named: "PrimaryColor") ?? UIColor.orange)
+        }
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationItem.title = "3D Printing Log"
         logs.loadData {
             self.sortBasedOnSegmentPressed() // data is sorted before the view appears
@@ -172,7 +211,6 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource, UIN
 //        }
 //        tableView.deselectRow(at: indexPath, animated: false)
 //    }
-    // TODO: Need to figure out why the Navigation and Bottom bars are not orange as they should be!!
     // TODO: Need to add code to remove data when delete is pressed after "Edit"
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     

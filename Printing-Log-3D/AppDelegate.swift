@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initialize Firebase
         FirebaseApp.configure()
         //Change the appearance for all Navigation Controllers
-        UINavigationBar.appearance().barStyle = UIBarStyle.black
+        //UINavigationBar.appearance().barStyle = UIBarStyle.black
         //UIScrollView.scrollRectToVisible(<#T##self: UIScrollView##UIScrollView#>)
         
         return true

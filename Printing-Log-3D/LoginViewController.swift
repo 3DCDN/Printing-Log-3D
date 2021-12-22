@@ -13,6 +13,7 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseStorage
 import AuthenticationServices
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -38,14 +39,11 @@ class LoginViewController: UIViewController {
             FUIOAuth.appleAuthProvider(),
             FUIGoogleAuth.init(authUI: authUI)
         ]
+        
         if authUI.auth?.currentUser == nil { // user has not signed in
             self.authUI.providers = providers // show providers named after let providers: above
             let authViewController = authUI.authViewController()
             authViewController.modalPresentationStyle = .fullScreen
-            //            let seconds = 5.0
-            //            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            //                print("Delay of five seconds is done~~")
-            //            }
             present(authViewController, animated: true, completion: nil)
         } else { // user is already logged in
             //perform(<#T##Selector#>, with: <#T##Any?#>, afterDelay: <#T##TimeInterval#>)
@@ -75,30 +73,28 @@ extension LoginViewController: FUIAuthDelegate {
         let topSafeArea = self.view.safeAreaInsets.top + 64
         
         // Create an instance of the FirebaseAuth login view controller
-        
         let authViewController = FUIAuthPickerViewController(authUI: authUI)
         // Set background color to white
         authViewController.view.backgroundColor = UIColor.white
         // Subviews were determined by Prof. John Gallaugher
         authViewController.view.subviews[0].backgroundColor = UIColor.clear
         authViewController.view.subviews[0].subviews[0].backgroundColor = UIColor.clear
+        //TODO: How to get view height from NSLayoutDimension
+//        let testy = CGRect(from: NSLayoutDimension(coder: authViewController.view.heightAnchor) as! Decoder)
         //TODO: When view rotates needs to update frame again
-        
+
         // Create a frame for a UIImageView to hold our logo
         let x = marginInsets
-        let y = marginInsets + topSafeArea
+        let y = topSafeArea
         let width = self.view.frame.width - (marginInsets * 2)
         //        //        let height = loginViewController.view.subviews[0].frame.height - (topSafeArea) - (marginInsets * 2)
         //MARK: Original height declaration statement      let height = UIScreen.main.bounds.height - (topSafeArea+120) - (marginInsets*1)
-        //
-        let height = UIScreen.main.bounds.height - 216 - topSafeArea - marginInsets
+        let height = UIScreen.main.bounds.height - 216 - topSafeArea - (marginInsets * 2)
         let logoFrame = CGRect(x: x, y: y, width: width, height: height)
-        //
+        
         //        // Create the UIImageView using the frame created above & add the "logo" image
         let logoImageView = UIImageView(frame: logoFrame)
         logoImageView.image = UIImage(named: "logo")
-        print("Size of the Logo Image is: \(String(describing: logoImageView.image?.size))")
-        print("Safe Area amount: \(topSafeArea)")
         logoImageView.contentMode = .scaleAspectFit // Set imageView to Aspect Fit
         authViewController.view.addSubview(logoImageView) // Add ImageView to the login controller's main view
         return authViewController

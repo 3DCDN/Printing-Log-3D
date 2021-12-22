@@ -49,17 +49,15 @@ class LogDataViewController: UIViewController, UIToolbarDelegate {
             setNeedsStatusBarAppearanceUpdate()
         }
     }
-    
     override var prefersStatusBarHidden: Bool {
         return hideStatusBar
     }
-    
 //    let statusBarBackgroundColor = UIColor(named: "PrimaryColor")
 //    self.view.layer.backgroundColor = statusBarBackgroundColor.cgColor()
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Printing Frame Height: \(self.view.layer.frame.height)")
-//        self.navigationController?.toolbar.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
+        self.navigationController?.toolbar.backgroundColor = UIColor(named: "PrimaryColor") ?? UIColor.orange
         
         logs = Logs()
 //        overrideUserInterfaceStyle

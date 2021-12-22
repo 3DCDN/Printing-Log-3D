@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "3D_Printer_Icon_Credit_Label.png",
+      "filename" : "3D_Printer_Icon_Attributed.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +17,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
   }
 }

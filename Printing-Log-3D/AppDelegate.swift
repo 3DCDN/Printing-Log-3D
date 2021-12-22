@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Change the appearance for all Navigation Controllers
         //UINavigationBar.appearance().barStyle = UIBarStyle.black
         //UIScrollView.scrollRectToVisible(<#T##self: UIScrollView##UIScrollView#>)
-        
+        //UITableView.appearance().backgroundColor = UIColor.white
+        UITableViewCell.appearance().backgroundColor = UIColor.clear
         return true
     }
 

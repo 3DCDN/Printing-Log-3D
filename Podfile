@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'Printing-Log-3D' do
     pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
     pod 'Firebase/Storage'
     pod 'Firebase/Firestore'
     pod 'Firebase/Auth'

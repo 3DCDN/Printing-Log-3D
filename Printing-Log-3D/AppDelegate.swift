@@ -7,21 +7,36 @@
 
 import UIKit
 import Firebase
+import FirebaseMessaging
+import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //Initialize Firebase
         FirebaseApp.configure()
-        //Change the appearance for all Navigation Controllers
-        //UINavigationBar.appearance().barStyle = UIBarStyle.black
-        //UIScrollView.scrollRectToVisible(<#T##self: UIScrollView##UIScrollView#>)
-        //UITableView.appearance().backgroundColor = UIColor.white
+        Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
+
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { success, error in
+            guard success else {
+                print("Could not send notification to user")
+                return
+            }
+            print("Success in sending push notification registration")
+        }
+        application.registerForRemoteNotifications()
+        //Configure table Cell to appear clear all the time for each table
         UITableViewCell.appearance().backgroundColor = UIColor.clear
         return true
+    }
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        guard let token = fcmToken else { // verify if token for app and user is received
+            return
+            
+        }
+        print("Token: \(token)")
     }
 
     // MARK: UISceneSession Lifecycle

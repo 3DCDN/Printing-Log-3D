@@ -75,7 +75,7 @@ extension LoginViewController: FUIAuthDelegate {
         // Create an instance of the FirebaseAuth login view controller
         let authViewController = FUIAuthPickerViewController(authUI: authUI)
         // Set background color to white
-        authViewController.view.backgroundColor = UIColor.white
+        authViewController.view.backgroundColor = UIColor.systemGray5
         // Subviews were determined by Prof. John Gallaugher
         authViewController.view.subviews[0].backgroundColor = UIColor.clear
         authViewController.view.subviews[0].subviews[0].backgroundColor = UIColor.clear

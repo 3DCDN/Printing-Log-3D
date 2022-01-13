@@ -175,7 +175,7 @@ extension LogDataViewController: UITableViewDelegate, UITableViewDataSource, UIN
         cell.modelLabel!.text = logs.logArray[indexPath.row].modelName
         cell.printerLabel!.text = logs.logArray[indexPath.row].printerName
         cell.datePrinted!.text = dateFormatter.string(from: logs.logArray[indexPath.row].date)
-        print("Date Label: \(cell.datePrinted.text!)")
+//        print("Date Label: \(cell.datePrinted.text!)")
         return cell
     }
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {

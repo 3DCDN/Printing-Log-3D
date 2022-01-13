@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>91191784057-hk635hi1gj7hibntkck5aq8k8f0q1etr.apps.googleusercontent.com</string>
+	<string>120800436298-r9tjg9bfi1jl3qhk2neh23erivkvbtar.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.91191784057-hk635hi1gj7hibntkck5aq8k8f0q1etr</string>
+	<string>com.googleusercontent.apps.120800436298-r9tjg9bfi1jl3qhk2neh23erivkvbtar</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAhjskcQ69dYP-HpQo_DCfxK5zQhAGCNbg</string>
+	<string>AIzaSyAs4OSY0T7TN2UZqBIt4P_5oAjaVGOKQsU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>91191784057</string>
+	<string>120800436298</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.Rich-St-Onge.Printing-Log-3D</string>
 	<key>PROJECT_ID</key>
-	<string>printing-log-db2</string>
+	<string>d-printing-log2</string>
 	<key>STORAGE_BUCKET</key>
-	<string>printing-log-db2.appspot.com</string>
+	<string>d-printing-log2.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:91191784057:ios:07454f751209cb044d9aa8</string>
+	<string>1:120800436298:ios:93fa4dd55e55ad0c41c6b3</string>
 </dict>
 </plist>
